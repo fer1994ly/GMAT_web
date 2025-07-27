@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago Exitoso - Alfonso GMAT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="max-w-2xl mx-auto px-4 py-16">
+        <div class="bg-white rounded-lg shadow-lg p-8 text-center">
+            <div class="mb-6">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+                <h1 class="text-3xl font-bold text-gray-900 mb-2">¡Pago Exitoso!</h1>
+                <p class="text-gray-600">Tu pago ha sido procesado correctamente</p>
+            </div>
+
+            <div class="bg-gray-50 rounded-lg p-6 mb-8">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Próximos pasos</h2>
+                <div class="space-y-3 text-left">
+                    <div class="flex items-start">
+                        <div class="w-6 h-6 bg-primary-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5">1</div>
+                        <div>
+                            <p class="font-medium">Recibirás un email de confirmación</p>
+                            <p class="text-sm text-gray-600">Con los detalles de tu compra y próximos pasos</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-6 h-6 bg-primary-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5">2</div>
+                        <div>
+                            <p class="font-medium">Alfonso se pondrá en contacto contigo</p>
+                            <p class="text-sm text-gray-600">En las próximas 24 horas para coordinar las clases</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-6 h-6 bg-primary-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5">3</div>
+                        <div>
+                            <p class="font-medium">Comenzarás tu preparación</p>
+                            <p class="text-sm text-gray-600">Con materiales personalizados y seguimiento individual</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <a href="/" class="block w-full bg-primary-600 text-white py-3 px-6 rounded-lg hover:bg-primary-700 transition font-semibold">
+                    Volver al Inicio
+                </a>
+                <a href="/#contacto" class="block w-full border border-primary-600 text-primary-600 py-3 px-6 rounded-lg hover:bg-primary-50 transition font-semibold">
+                    Contactar con Alfonso
+                </a>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-gray-200">
+                <p class="text-sm text-gray-500">
+                    Si tienes alguna pregunta, no dudes en contactar con nosotros:<br>
+                    <a href="mailto:alfonso@gmat-expert.com" class="text-primary-600 hover:underline">alfonso@gmat-expert.com</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Clear cart from session storage
+        sessionStorage.removeItem('cart');
+    </script>
+</body>
+</html> 
