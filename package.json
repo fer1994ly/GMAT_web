@@ -1,20 +1,33 @@
 {
   "name": "alfonso_web",
   "version": "1.0.0",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "vercel --prod"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "gmat",
+    "education",
+    "tutoring",
+    "alfonso"
+  ],
+  "author": "Alfonso Rodríguez Mayo",
   "license": "ISC",
-  "description": "",
-  "dependencies": {
+  "description": "Sitio web profesional de Alfonso Rodríguez Mayo - Preparación GMAT, EA, IESE y ESADE",
+  "devDependencies": {
     "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.11",
+    "terser": "^5.43.1",
+    "vite": "^5.0.0"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.1.11",
     "cors": "^2.8.5",
     "nodemailer": "^7.0.5",
-    "postcss": "^8.5.6",
-    "stripe": "^18.3.0",
-    "tailwindcss": "^4.1.11"
+    "stripe": "^18.3.0"
   }
 }

@@ -1,249 +1,193 @@
-# Alfonso GMAT - Website Profesional
+# Alfonso GMAT - Sitio Web Profesional
 
-Sitio web profesional para Alfonso Rodríguez Mayo, profesor experto en GMAT, EA y pruebas de acceso universitario con más de 15 años de experiencia.
+Sitio web profesional de Alfonso Rodríguez Mayo para preparación de GMAT, EA, IESE y ESADE.
 
 ## 🚀 Características
 
-### Frontend
-- **Diseño Responsivo**: Optimizado para móvil, tablet y escritorio
-- **SEO Optimizado**: Meta tags completos, estructura semántica, Open Graph
-- **Interactividad**: Carrito de compras con session storage
-- **Animaciones**: Transiciones suaves y efectos visuales
-- **Accesibilidad**: Navegación por teclado, contraste adecuado
+- **Modular**: Código JavaScript organizado en módulos reutilizables
+- **SEO Optimizado**: Meta tags, Open Graph, y estructura semántica
+- **Responsive**: Diseño adaptativo para todos los dispositivos
+- **Performance**: Optimizado con Vite para carga rápida
+- **Carrito de Compras**: Funcionalidad completa de e-commerce
+- **Formulario de Contacto**: Integrado con API serverless
 
-### Backend (Vercel Serverless Functions)
-- **Formulario de Contacto**: Envío de emails con Nodemailer
-- **Pasarela de Pago**: Integración completa con Stripe
-- **Webhooks**: Procesamiento automático de pagos
-- **Notificaciones**: Emails automáticos de confirmación
+## 🛠️ Tecnologías
 
-### Funcionalidades Principales
-- ✅ Puntuación GMAT 785 destacada
-- ✅ Experiencia internacional (UC Berkeley, ESADE, Londres, EE.UU.)
-- ✅ Cursos: GMAT Focus, Executive Assessment, IESE & ESADE
-- ✅ Clases particulares personalizadas
-- ✅ Consultoría de admisiones
-- ✅ Sistema de pagos seguro
-- ✅ Formulario de contacto funcional
-- ✅ Testimonios de estudiantes
-- ✅ Información de autónomo y facturación
-
-## 🛠️ Tecnologías Utilizadas
-
-- **Frontend**: HTML5, CSS3 (Tailwind CSS), JavaScript Vanilla
-- **Backend**: Node.js, Vercel Serverless Functions
-- **Email**: Nodemailer con Gmail SMTP
-- **Pagos**: Stripe Checkout
-- **Deployment**: Vercel
-- **Imágenes**: Unsplash (open source)
+- **Frontend**: HTML5, CSS3, JavaScript ES6+
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **Backend**: Vercel Serverless Functions
+- **Email**: Nodemailer
+- **Pagos**: Stripe
 
 ## 📁 Estructura del Proyecto
 
 ```
-alfonso-gmat-website/
+alfonso_web/
+├── src/
+│   ├── main.js              # Archivo principal
+│   ├── modules/
+│   │   ├── cart.js          # Módulo del carrito
+│   │   ├── mobile-menu.js   # Módulo del menú móvil
+│   │   ├── contact.js       # Módulo de contacto
+│   │   └── animations.js    # Módulo de animaciones
+│   └── styles/              # Estilos CSS
+├── api/                     # Funciones serverless
+│   ├── contact.js
+│   ├── create-checkout-session.js
+│   └── webhook.js
+├── public/                  # Assets estáticos
 ├── index.html              # Página principal
-├── success.html            # Página de pago exitoso
-├── cancel.html             # Página de pago cancelado
-├── js/
-│   └── main.js             # JavaScript principal
-├── api/
-│   ├── contact.js          # API para formulario de contacto
-│   ├── create-checkout-session.js  # API para Stripe
-│   └── webhook.js          # Webhook de Stripe
-├── package.json            # Dependencias
-├── tailwind.config.js      # Configuración de Tailwind
-├── postcss.config.js       # Configuración de PostCSS
-├── vercel.json             # Configuración de Vercel
-├── env.example             # Variables de entorno (template)
-└── README.md               # Este archivo
+├── success.html            # Página de éxito
+├── cancel.html             # Página de cancelación
+├── package.json
+├── vite.config.js          # Configuración Vite
+└── vercel.json             # Configuración Vercel
 ```
 
-## 🚀 Instalación y Configuración
+## 🚀 Instalación y Desarrollo
 
-### 1. Clonar el repositorio
-```bash
-git clone <repository-url>
-cd alfonso-gmat-website
-```
+### Prerrequisitos
+- Node.js 18+ 
+- npm o yarn
 
-### 2. Instalar dependencias
+### Instalación
 ```bash
+# Clonar el repositorio
+git clone [url-del-repositorio]
+cd alfonso_web
+
+# Instalar dependencias
 npm install
+
+# Iniciar servidor de desarrollo
+npm run dev
 ```
 
-### 3. Configurar variables de entorno
+### Scripts Disponibles
+
 ```bash
-cp env.example .env.local
+npm run dev          # Servidor de desarrollo (puerto 3000)
+npm run build        # Build para producción
+npm run preview      # Preview del build
+npm run deploy       # Deploy a Vercel
 ```
 
-Editar `.env.local` con tus credenciales:
-```env
-# Gmail Configuration
-GMAIL_USER=tu-email@gmail.com
-GMAIL_APP_PASSWORD=
+## 📦 Módulos JavaScript
 
-# Alfonso's Email
-ALFONSO_EMAIL=alfonso@gmat-expert.com
+### CartModule (`src/modules/cart.js`)
+- Gestión del carrito de compras
+- Persistencia en sessionStorage
+- Integración con Stripe
+- Notificaciones
 
-# Stripe Configuration
-STRIPE_SECRET_KEY=sk_test_tu_stripe_secret_key
-STRIPE_WEBHOOK_SECRET=whsec_tu_webhook_secret
-```
+### MobileMenuModule (`src/modules/mobile-menu.js`)
+- Menú hamburguesa responsive
+- Navegación suave
+- Eventos táctiles
 
-### 4. Configurar Gmail
-1. Activar autenticación de 2 factores en tu cuenta Gmail
-2. Generar una contraseña de aplicación
-3. Usar esa contraseña en `GMAIL_APP_PASSWORD`
+### ContactModule (`src/modules/contact.js`)
+- Formulario de contacto
+- Validación de campos
+- Envío de emails
 
-### 5. Configurar Stripe
-1. Crear cuenta en [Stripe](https://stripe.com)
-2. Obtener las claves de API desde el dashboard
-3. Configurar webhook en Stripe Dashboard:
-   - URL: `https://tu-dominio.vercel.app/api/webhook`
-   - Eventos: `checkout.session.completed`, `payment_intent.succeeded`, `payment_intent.payment_failed`
-
-## 🚀 Deployment en Vercel
-
-### 1. Instalar Vercel CLI
-```bash
-npm i -g vercel
-```
-
-### 2. Login en Vercel
-```bash
-vercel login
-```
-
-### 3. Deploy
-```bash
-vercel
-```
-
-### 4. Configurar variables de entorno en Vercel
-```bash
-vercel env add GMAIL_USER
-vercel env add GMAIL_APP_PASSWORD
-vercel env add ALFONSO_EMAIL
-vercel env add STRIPE_SECRET_KEY
-vercel env add STRIPE_WEBHOOK_SECRET
-```
-
-## 📧 Configuración de Email
-
-El sistema envía emails automáticos para:
-- Confirmación de formulario de contacto
-- Confirmación de pago exitoso
-- Notificación a Alfonso de nuevos contactos/pagos
-- Notificación de pagos fallidos
-
-### Estructura de emails:
-1. **Contacto**: Email a Alfonso + confirmación al usuario
-2. **Pago exitoso**: Confirmación al cliente + notificación a Alfonso
-3. **Pago fallido**: Notificación a Alfonso
-
-## 💳 Configuración de Pagos
-
-### Productos configurados:
-- **GMAT Focus**: €150
-- **Executive Assessment**: €180
-- **IESE & ESADE**: €200
-
-### Flujo de pago:
-1. Usuario añade cursos al carrito
-2. Procede al checkout con Stripe
-3. Pago procesado
-4. Webhook recibe confirmación
-5. Emails automáticos enviados
-6. Alfonso notificado para coordinar clases
-
-## 🎨 Personalización
-
-### Colores principales:
-- Primary: Blue (#3b82f6)
-- Secondary: Gray (#64748b)
-- Success: Green (#10b981)
-- Warning: Yellow (#f59e0b)
-- Error: Red (#ef4444)
-
-### Fuentes:
-- Inter (Google Fonts)
-- Georgia (serif)
-
-## 📱 Responsive Design
-
-El sitio está optimizado para:
-- **Móvil**: 320px - 768px
-- **Tablet**: 768px - 1024px
-- **Desktop**: 1024px+
-
-## 🔍 SEO
-
-### Meta tags implementados:
-- Title optimizado con palabras clave
-- Description atractiva
-- Open Graph para redes sociales
-- Twitter Cards
-- Canonical URL
-- Keywords relevantes
-
-### Estructura semántica:
-- Header, nav, main, section, article, footer
-- H1-H6 jerarquía correcta
-- Alt text en imágenes
-- Schema markup (opcional)
-
-## 🚀 Optimización de Rendimiento
-
+### AnimationModule (`src/modules/animations.js`)
 - Lazy loading de imágenes
-- Minificación de CSS/JS
-- CDN de Tailwind CSS
-- Optimización de imágenes
-- Caching de recursos estáticos
+- Animaciones de scroll
+- CSS animations
+
+## 🔧 Configuración
+
+### Variables de Entorno
+Crear archivo `.env` basado en `env.example`:
+
+```env
+GMAIL_USER=tu-email@gmail.com
+GMAIL_APP_PASSWORD=tu-app-password
+ALFONSO_EMAIL=alfonso@gmat-expert.com
+STRIPE_SECRET_KEY=sk_test_...
+STRIPE_WEBHOOK_SECRET=whsec_...
+```
+
+### Vercel
+El proyecto está configurado para deploy automático en Vercel con:
+- Serverless functions para APIs
+- Headers de seguridad
+- Cache optimizado
+- CDN global
+
+## 🎯 SEO
+
+El sitio está optimizado para SEO con:
+- Meta tags completos
+- Open Graph para redes sociales
+- Estructura semántica HTML5
+- URLs amigables
+- Performance optimizada
+
+## 🚀 Deploy
+
+### Vercel (Recomendado)
+```bash
+npm run deploy
+```
+
+### Manual
+```bash
+npm run build
+# Subir contenido de /dist a tu hosting
+```
+
+## 📱 Funcionalidades
+
+### Carrito de Compras
+- Añadir/eliminar cursos
+- Modificar cantidades
+- Cálculo automático de totales
+- Integración con Stripe Checkout
+
+### Formulario de Contacto
+- Validación en tiempo real
+- Envío de emails automático
+- Confirmación al usuario
+- Notificaciones de estado
+
+### Navegación
+- Menú responsive
+- Scroll suave
+- Navegación por teclado
+- Accesibilidad mejorada
 
 ## 🔒 Seguridad
 
-- Variables de entorno para credenciales
+- Headers de seguridad configurados
 - Validación de formularios
 - Sanitización de datos
-- HTTPS obligatorio
-- Headers de seguridad
+- HTTPS obligatorio en producción
 
-## 📊 Analytics (Opcional)
+## 📈 Performance
 
-Para añadir Google Analytics:
-1. Crear cuenta en Google Analytics
-2. Añadir el código de tracking en el `<head>` de `index.html`
+- Lazy loading de imágenes
+- CSS y JS minificados
+- Assets optimizados
+- Cache headers configurados
 
-## 🐛 Troubleshooting
+## 🤝 Contribución
 
-### Problemas comunes:
-
-1. **Emails no se envían**:
-   - Verificar credenciales de Gmail
-   - Comprobar contraseña de aplicación
-   - Revisar logs de Vercel
-
-2. **Pagos no procesan**:
-   - Verificar claves de Stripe
-   - Comprobar webhook URL
-   - Revisar logs de Stripe Dashboard
-
-3. **Sitio no carga**:
-   - Verificar deployment en Vercel
-   - Comprobar variables de entorno
-   - Revisar logs de build
-
-## 📞 Soporte
-
-Para soporte técnico o preguntas:
-- Email: alfonso@gmat-expert.com
-- Documentación: Este README
-- Issues: GitHub repository
+1. Fork el proyecto
+2. Crear rama feature (`git checkout -b feature/AmazingFeature`)
+3. Commit cambios (`git commit -m 'Add AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abrir Pull Request
 
 ## 📄 Licencia
 
-Este proyecto está bajo la licencia MIT. Ver el archivo LICENSE para más detalles.
+Este proyecto está bajo la Licencia ISC.
+
+## 📞 Contacto
+
+Alfonso Rodríguez Mayo - alfonso@gmat-expert.com
 
 ---
 
-**Desarrollado con ❤️ para Alfonso Rodríguez Mayo** 
+**Desarrollado con ❤️ para la preparación profesional de GMAT** 
