@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Cart functionality
-function addToCart(courseName, price) {
+function addToCart(courseName, price, event) {
     const existingItem = cart.find(item => item.name === courseName);
     
     if (existingItem) {
@@ -77,7 +77,7 @@ function addToCart(courseName, price) {
     showNotification(`${courseName} añadido al carrito`, 'success');
     
     // Add visual feedback to the button
-    const button = event.target.closest('button');
+    const button = event ? event.target.closest('button') : null;
     if (button) {
         button.classList.add('bg-green-500');
         button.classList.remove('from-primary-600', 'to-primary-700');
