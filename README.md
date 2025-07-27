@@ -80,7 +80,7 @@ Editar `.env.local` con tus credenciales:
 ```env
 # Gmail Configuration
 GMAIL_USER=tu-email@gmail.com
-GMAIL_APP_PASSWORD=tu-contraseña-de-aplicacion
+GMAIL_APP_PASSWORD=
 
 # Alfonso's Email
 ALFONSO_EMAIL=alfonso@gmat-expert.com
