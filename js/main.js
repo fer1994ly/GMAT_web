@@ -8,10 +8,61 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     
+    console.log('Mobile menu elements:', { mobileMenuButton, mobileMenu });
+    
     if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
+        // Add click event listener
+        mobileMenuButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Mobile menu button clicked');
+            
+            // Toggle the hidden class
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                console.log('Mobile menu shown');
+            } else {
+                mobileMenu.classList.add('hidden');
+                console.log('Mobile menu hidden');
+            }
         });
+        
+        // Also add touch event for better mobile support
+        mobileMenuButton.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            console.log('Mobile menu button touched');
+            
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                console.log('Mobile menu shown (touch)');
+            } else {
+                mobileMenu.classList.add('hidden');
+                console.log('Mobile menu hidden (touch)');
+            }
+        });
+        
+        console.log('Mobile menu event listeners added successfully');
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    console.log('Mobile menu closed (click outside)');
+                }
+            }
+        });
+        
+        // Close mobile menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                console.log('Mobile menu closed (escape key)');
+            }
+        });
+        
+    } else {
+        console.error('Mobile menu elements not found:', { mobileMenuButton, mobileMenu });
     }
     
     // Smooth scrolling for navigation links
