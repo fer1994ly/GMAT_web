@@ -31,6 +31,6 @@ export default defineConfig({
   publicDir: 'public',
   // Optimizaciones de CSS
   css: {
-    postcss: './postcss.config.js'
+    postcss: './postcss.config.cjs'
   }
 }) 
